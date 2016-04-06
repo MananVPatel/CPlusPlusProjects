@@ -1,0 +1,40 @@
+//Author: Manan Patel, mvp5542@psu.edu, Thursday 8:00 AM - 9:50 AM
+//Class: CMPSC 121
+//Activity: 09
+//File: P:\Private\CMPSC 121\Experiments\exp9\exp9\exp9\exp09
+//purpose: To find the assesment value and property tax for a piece of property
+//Academic Integrity Affidavit: I certify that, this program code is my work.Others may have assisted me 
+//with planning and concepts, but the code was written, solely by me.
+//I understand that submitting code which is totally or partially the product of other individuals is a violation 
+//of the Academic Integrity Policy and accepted ethical precepts. Falsified execution results are also results of improper 
+//activities. Such violations may result in zero credit for the assignment, reduced credit for the assignment, or course failure.
+//Sources of logic assistance: 121 study group: None
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+//DECLARATIONS SECTION
+double temp;             // global variable BAD practice
+int pulse1, pulse2;      // global variable BAD practice
+const double CRITICAL_TEMP = 85; // global constant, good practice
+
+void check_pulse();   // Determine stability of pulse
+int main()
+{
+	cout << "Enter a temperature and two pulse rates: ";
+	cin >> temp >> pulse1 >> pulse2;  // global variables
+	check_pulse();
+	cout << "Temperature = " << temp << endl;
+	if (temp < CRITICAL_TEMP)
+		cout << "Patient is dead. Shut off life support.\n";
+}
+void check_pulse()
+{
+	// Determine stability of pulse
+	temp = pulse1 - pulse2;
+	// Use temporary variable to check pulse variability
+	if (abs(temp) >= 10)
+		cout << "Irregular pulse.\n";
+	else
+		cout << "Regular pulse.\n";
+}
